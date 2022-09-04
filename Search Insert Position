@@ -1,0 +1,25 @@
+"""
+
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+"""
+
+
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        count=0
+        if(target in nums):
+            for i in nums:
+                if(i==target):
+                    position=count
+                count+=1
+        else:
+            for i in nums:
+                if(i>target):
+                    position=count
+                    break
+                else:
+                    position=len(nums)
+                count+=1
+        return(position)    
+
