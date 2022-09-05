@@ -1,0 +1,17 @@
+"""
+Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+
+A subarray is a contiguous subsequence of the array."""
+
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        n = len(arr)
+        ans = 0
+        for i in range(n):
+            curSum = 0
+            for j in range(i, n):
+                curSum += arr[j]
+                if (j - i + 1) % 2 == 1:
+                    ans += curSum
+        return ans
+        
