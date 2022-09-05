@@ -1,0 +1,24 @@
+"""
+Given an array of integers arr, and three integers a, b and c. You need to find the number of good triplets.
+
+A triplet (arr[i], arr[j], arr[k]) is good if the following conditions are true:
+
+0 <= i < j < k < arr.length
+|arr[i] - arr[j]| <= a
+|arr[j] - arr[k]| <= b
+|arr[i] - arr[k]| <= c
+Where |x| denotes the absolute value of x.
+
+Return the number of good triplets.
+"""
+class Solution:
+    def countGoodTriplets(self, arr: List[int], a: int, b: int, c: int) -> int:
+        count=0
+        for i in range(len(arr)):
+            for ii in range(len(arr)):
+                for iii in range(len(arr)):
+                    if(abs(arr[i]-arr[ii])<=a and abs(arr[i]-arr[iii])<=c and abs(arr[ii]-arr[iii])<=b and 0 <= i < ii < iii < len(arr)):
+                        #print(i,ii,iii)
+                        count+=1
+
+        return(count)
